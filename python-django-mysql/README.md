@@ -13,5 +13,5 @@ $ docker-compose build
 
 3: Start services
 ```
-$ ./docker-compose.sh up --build
+$ docker-compose up -d
 ```
