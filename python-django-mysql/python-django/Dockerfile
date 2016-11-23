@@ -11,5 +11,11 @@ RUN apt-get install -y nginx
 RUN pip3 install -U pip
 RUN pip3 install django uwsgi
 RUN apt-get install -y mysql-client
+RUN pip install virtualenv
 
-VOLUME /var/dev
+RUN ln -s /usr/bin/python3 /usr/bin/python
+
+RUN mkdir -p /usr/src/app
+WORKDIR /usr/src/app
+
+ENV PATH $PATH:/usr/bin

@@ -6,7 +6,7 @@ python-django:
     - "8000"
   volumes:
     - ./python-django/app:/usr/src/app
-  command: ./manage.py runserver 0.0.0.0:8000
+  command: /usr/src/app/manage.py runserver 0.0.0.0:8000
 # reverse-proxy
 reverse-proxy:
   build: reverse-proxy
@@ -15,3 +15,5 @@ reverse-proxy:
     - python-django:python-django
   ports:
     - "80:80"
+  links:
+    - python-django:./python-django/app
