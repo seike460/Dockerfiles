@@ -21,4 +21,4 @@ php70-php-pdo \
 php70-php-json \
 php70-php-pecl-zip
 
-ENTRYPOINT ["/bin/systemctl", "start", "httpd.service"]
+ENTRYPOINT /sbin/httpd -DFOREGROUND -d /var/www/html

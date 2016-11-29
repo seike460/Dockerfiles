@@ -6,7 +6,7 @@ php:
   ports:
     - "80:80"
   volumes:
-    - ./php/app:/var/www/html
+    - ./php/app/:/var/www/html
 # postgres
 postgres:
   build: postgres
