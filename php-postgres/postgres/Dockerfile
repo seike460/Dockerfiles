@@ -8,4 +8,5 @@ USER postgres
 RUN /usr/pgsql-9.4/bin/initdb --no-locale -E UTF8 -D /var/lib/pgsql/data
 USER root
 
-ENTRYPOINT ["/bin/systemctl", "start", "postgresql-9.4.service"]
+ENTRYPOINT /bin/systemctl start httpd.service \
+  tail -f /var/log/message
