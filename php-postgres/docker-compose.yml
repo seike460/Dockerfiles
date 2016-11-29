@@ -1,0 +1,16 @@
+# php
+php:
+  build: php
+  container_name: "php"
+  privileged: true
+  ports:
+    - "80:80"
+  volumes:
+    - ./php/app:/var/www/html
+# postgres
+postgres:
+  build: postgres
+  container_name: "postgres"
+  privileged: true
+  ports:
+    - "5432:5432"
