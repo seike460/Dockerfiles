@@ -1,6 +1,6 @@
 ### OS X
 
-1. your django projects clone to ./php/app
+1. your projects clone to ./php/app
 
 ```
 git clone https://github.com/{$yourAccount}/{$yourApp} ./php/app
