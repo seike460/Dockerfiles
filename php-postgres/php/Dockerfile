@@ -21,4 +21,6 @@ php70-php-pdo \
 php70-php-json \
 php70-php-pecl-zip
 
+COPY httpd.conf /etc/httpd/conf/
+
 ENTRYPOINT /sbin/httpd -DFOREGROUND

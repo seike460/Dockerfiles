@@ -5,14 +5,7 @@ data-box:
     - ./postgres/data/:/var/lib/postgresql/data
     - ./php/app/:/var/www/html
   container_name: data-box
-# php
-php:
-  build: php
-  container_name: php
-  ports:
-    - "80:80"
-  volumes_from:
-    - data-box
+# postgresql
 postgresql:
   image: postgres
   environment:
@@ -21,5 +14,15 @@ postgresql:
   ports:
     - "5432:5432"
   container_name: postgres-db
+  volumes_from:
+    - data-box
+# php
+php:
+  build: php
+  container_name: php
+  ports:
+    - "80:80"
+  links:
+    - postgresql:postgresql
   volumes_from:
     - data-box
