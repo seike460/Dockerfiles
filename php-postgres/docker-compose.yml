@@ -1,16 +1,25 @@
+# data-box
+data-box:
+  image: busybox
+  volumes:
+    - ./postgres/data/:/var/lib/postgresql/data
+    - ./php/app/:/var/www/html
+  container_name: data-box
 # php
 php:
   build: php
-  container_name: "php"
-  privileged: true
+  container_name: php
   ports:
     - "80:80"
-  volumes:
-    - ./php/app/:/var/www/html
-# postgres
-postgres:
-  build: postgres
-  container_name: "postgres"
-  privileged: true
+  volumes_from:
+    - data-box
+postgresql:
+  image: postgres
+  environment:
+    POSTGRES_USER: seike460
+    POSTGRES_PASSWORD: password
   ports:
     - "5432:5432"
+  container_name: postgres-db
+  volumes_from:
+    - data-box

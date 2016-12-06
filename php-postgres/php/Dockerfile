@@ -21,4 +21,4 @@ php70-php-pdo \
 php70-php-json \
 php70-php-pecl-zip
 
-ENTRYPOINT /sbin/httpd -DFOREGROUND -d /var/www/html
+ENTRYPOINT /sbin/httpd -DFOREGROUND
