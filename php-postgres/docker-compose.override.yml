@@ -1,0 +1,16 @@
+# data-box
+data-box:
+  volumes:
+    - ./php/app/:/var/www/html
+    - ./postgres/data/:/var/lib/postgresql/data
+# postgresql
+postgresql:
+  environment:
+    POSTGRES_USER: seike460
+    POSTGRES_PASSWORD: password
+  ports:
+    - "5432:5432"
+# php
+php:
+  ports:
+    - "80:80"
