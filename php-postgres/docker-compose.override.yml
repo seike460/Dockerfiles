@@ -1,8 +1,8 @@
 # data-box
 data-box:
   volumes:
-    - ./php/app/:/var/www/html
-    - ./postgres/data/:/var/lib/postgresql/data
+    - ~/var/code/app/:/var/www/html
+    - ~/var/docker_volumes/pg_data/:/var/lib/postgresql/data
 # postgresql
 postgresql:
   environment:
@@ -14,3 +14,4 @@ postgresql:
 php:
   ports:
     - "80:80"
+    - "443:443"
