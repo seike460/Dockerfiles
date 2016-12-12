@@ -1,0 +1,16 @@
+# data-box
+data-box:
+  volumes:
+    - ~/var/code/webDjango/:/usr/src/app/
+    - ~/var/docker_volumes/mysql_data/:/var/lib/mysql
+# mysql
+db:
+  environment:
+    MYSQL_ROOT_PASSWORD: password
+  ports:
+    - "3306:3306"
+# django 
+web:
+  ports:
+    - "80:80"
+  dns: 8.8.8.8
