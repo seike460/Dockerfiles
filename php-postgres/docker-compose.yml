@@ -1,18 +1,10 @@
-# data-box
-data-box:
-  image: busybox
-  container_name: data-box
 # postgresql
-postgresql:
+db:
   image: postgres
-  container_name: postgres-db
-  volumes_from:
-    - data-box
+  container_name: postgres-late
 # php
-php:
+web:
   build: php
-  container_name: php
+  container_name: php-late
   links:
-    - postgresql:postgresql
-  volumes_from:
-    - data-box
+    - db:postgres-late

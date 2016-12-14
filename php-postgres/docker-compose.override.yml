@@ -1,17 +1,16 @@
-# data-box
-data-box:
-  volumes:
-    - ~/var/code/app/:/var/www/html
-    - ~/var/docker_volumes/pg_data/:/var/lib/postgresql/data
 # postgresql
-postgresql:
+db:
+  volumes:
+    - ~/var/docker_volumes/pg_data/:/var/lib/postgresql/data
   environment:
     POSTGRES_USER: seike460
     POSTGRES_PASSWORD: password
   ports:
     - "5432:5432"
 # php
-php:
+web:
+  volumes:
+    - ~/var/code/app/:/var/www/html
   ports:
     - "80:80"
     - "443:443"
