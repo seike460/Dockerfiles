@@ -1,18 +1,10 @@
-# data-box
-data-box:
-  image: busybox
-  container_name: data-box-django
 # mysql 
 db:
   image: mysql 
   container_name: mysql-db
-  volumes_from:
-    - data-box
 # django 
 web:
   build: django
   container_name: web-django
   links:
     - db:mysql-db
-  volumes_from:
-    - data-box
