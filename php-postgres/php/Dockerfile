@@ -1,7 +1,7 @@
 FROM centos
 MAINTAINER seike460
 
-RUN yum update
+RUN yum update -y
 RUN yum install -y http://rpms.famillecollet.com/enterprise/remi-release-7.rpm
 RUN yum install -y \
 httpd \
