@@ -1,0 +1,17 @@
+version: '3'
+services:
+  nginx:
+    container_name: nginx-phoenix
+    image: jwilder/nginx-proxy
+    ports:
+      - "80:80"
+    volumes:
+      - /var/run/docker.sock:/tmp/docker.sock:ro
+  postgres:
+    container_name: postgres-phoenix
+    privileged: true
+    image: postgres
+  phoenix:
+    container_name: phoenix
+    build: phoenix
+    command: mix phx.server
